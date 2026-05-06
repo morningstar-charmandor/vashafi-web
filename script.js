@@ -8,26 +8,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set initial theme
     if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-        htmlElement.setAttribute('data-theme', 'dark');
-        themeToggleBtn.textContent = 'LIGHT MODE';
+        setTheme('dark');
     } else {
-        htmlElement.setAttribute('data-theme', 'light');
-        themeToggleBtn.textContent = 'DARK MODE';
+        setTheme('light');
     }
 
     // Toggle theme on button click
     themeToggleBtn.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
-        let newTheme = 'light';
-        let btnText = 'DARK MODE';
-
-        if (currentTheme === 'light') {
-            newTheme = 'dark';
-            btnText = 'LIGHT MODE';
-        }
-
-        htmlElement.setAttribute('data-theme', newTheme);
-        themeToggleBtn.textContent = btnText;
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
     });
+
+    function setTheme(theme) {
+        htmlElement.setAttribute('data-theme', theme);
+
+        // Toggle icon visibility
+        const sunIcon = themeToggleBtn.querySelector('.icon-sun');
+        const moonIcon = themeToggleBtn.querySelector('.icon-moon');
+
+        if (theme === 'dark') {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        } else {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
+    }
 });

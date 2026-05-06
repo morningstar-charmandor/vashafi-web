@@ -4,112 +4,266 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jane Doe | Product Designer</title>
-    <meta name="description" content="Portfolio of Jane Doe, a Product Designer specializing in digital experiences.">
+    <meta name="description" content="Portfolio of Jane Doe — Senior Product Designer crafting bold digital experiences.">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
+    <!-- Fixed decorative page shapes -->
+    <div class="page-shape page-shape-1" aria-hidden="true"></div>
+    <div class="page-shape page-shape-2" aria-hidden="true"></div>
+
+    <!-- ========== HEADER ========== -->
     <header>
         <div class="container nav-container">
-            <div class="logo">
-                Jane Doe
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-                    DARK MODE
+            <a href="#" class="logo">
+                <span class="logo-icon">JD</span>
+                jane.design
+            </a>
+            <div class="nav-right">
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">What I Do</a></li>
+                        <li><a href="#work">My Work</a></li>
+                    </ul>
+                </nav>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Sun icon (shown in dark mode) -->
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <!-- Moon icon (shown in light mode) -->
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
                 </button>
-            </nav>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero container">
-            <div class="hero-content">
-                <div class="hero-label">Available for freelance</div>
-                <h1>Crafting digital experiences.</h1>
-                <p>I'm a product designer focused on creating bold, intuitive, and highly functional digital products for modern brands.</p>
-                <div class="hero-buttons">
-                    <a href="#work" class="btn btn-primary">View my work</a>
-                    <a href="#contact" class="btn btn-secondary">Get in touch</a>
+        <!-- ========== HERO ========== -->
+        <section id="about" class="hero">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-text">
+                        <p class="hero-greeting">Hi, my name is Jane.</p>
+                        <h1 class="hero-heading">I design for growth.</h1>
+                        <p class="hero-desc">I'm a Senior Growth Product Designer with a marketing background, Design Mentor at GDS and Career Coach at Liftyz.</p>
+                        <a href="#work" class="hero-cta">Start growing</a>
+                    </div>
+
+                    <div class="hero-visual">
+                        <!-- Floating shapes around the image -->
+                        <div class="shape hero-shape-1" aria-hidden="true"></div>
+                        <div class="shape hero-shape-2" aria-hidden="true"></div>
+                        <div class="shape hero-shape-3" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><circle cx="17.5" cy="17.5" r="3.5"/></svg>
+                        </div>
+                        <div class="shape hero-shape-4" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,10 24,10 17,15 19,24 12,19 5,24 7,15 0,10 9,10"/></svg>
+                        </div>
+                        <div class="shape hero-shape-5" aria-hidden="true"></div>
+                        <div class="shape hero-shape-6" aria-hidden="true"></div>
+
+                        <!-- Icon badges floating near the photo -->
+                        <div class="icon-badge icon-badge-1" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/></svg>
+                        </div>
+                        <div class="icon-badge icon-badge-2" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg>
+                        </div>
+
+                        <!-- Name Badge -->
+                        <div class="name-badge">Jane Doe</div>
+
+                        <!-- Photo Frame -->
+                        <div class="hero-photo-frame">
+                            <div class="hero-photo-placeholder">
+                                <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="100" cy="70" r="45" fill="rgba(255,255,255,0.3)"/>
+                                    <ellipse cx="100" cy="220" rx="70" ry="60" fill="rgba(255,255,255,0.25)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Freelance Badge -->
+                        <div class="freelance-badge">
+                            <span class="freelance-dot"></span>
+                            Available for Freelance
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Work Section -->
+        <!-- ========== SERVICES ========== -->
+        <section id="services" class="services">
+            <div class="container">
+                <p class="section-label">Passion led us here</p>
+                <h2 class="section-title">What I can do for you</h2>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon service-icon-1">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                                <rect x="6" y="7" width="5" height="5" rx="1"/>
+                                <line x1="14" y1="7" x2="18" y2="7"/>
+                                <line x1="14" y1="10" x2="18" y2="10"/>
+                            </svg>
+                        </div>
+                        <h3>Product Design</h3>
+                        <p>I specialize in creating effective designs for startups, focusing on conversion and growth metrics.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon service-icon-2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="6"/>
+                                <circle cx="12" cy="12" r="2"/>
+                                <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                            </svg>
+                        </div>
+                        <h3>UX/UI Design</h3>
+                        <p>I can design your mobile app, website or eCommerce store with a focus on usability and delight.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon service-icon-3">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <line x1="12" y1="2" x2="12" y2="22"/>
+                                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                                <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/>
+                            </svg>
+                        </div>
+                        <h3>Education</h3>
+                        <p>I help junior designers kickstart their design career through mentoring and coaching sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== WORK ========== -->
         <section id="work" class="work">
             <div class="container">
-                <div class="work-header">
-                    <h2>Selected Work</h2>
-                    <p>A collection of recent projects spanning fintech, healthcare, and SaaS.</p>
-                </div>
+                <p class="section-label">Recent projects</p>
+                <h2 class="section-title">My Work</h2>
 
                 <div class="work-grid">
-                    <!-- Project 1 -->
                     <article class="project-card">
-                        <div class="project-img">
-                            Project 01
+                        <div class="project-thumb">
+                            <div class="project-thumb-inner">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-color)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                                <span>Nexus Banking</span>
+                            </div>
                         </div>
                         <div class="project-info">
                             <div class="project-tags">
                                 <span class="tag">Fintech</span>
                                 <span class="tag">Mobile App</span>
                             </div>
-                            <h3 class="project-title">Nexus Banking</h3>
-                            <p>Redesigning the mobile banking experience for Gen Z.</p>
+                            <h3>Nexus Banking App</h3>
+                            <p>Redesigning the mobile banking experience for Gen Z users.</p>
                         </div>
                     </article>
 
-                    <!-- Project 2 -->
                     <article class="project-card">
-                        <div class="project-img">
-                            Project 02
+                        <div class="project-thumb">
+                            <div class="project-thumb-inner">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-color)" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                                <span>Aero Analytics</span>
+                            </div>
                         </div>
                         <div class="project-info">
                             <div class="project-tags">
                                 <span class="tag">SaaS</span>
                                 <span class="tag">Dashboard</span>
                             </div>
-                            <h3 class="project-title">Aero Analytics</h3>
+                            <h3>Aero Analytics</h3>
                             <p>Complex data visualization made simple and actionable.</p>
                         </div>
                     </article>
 
-                    <!-- Project 3 -->
                     <article class="project-card">
-                        <div class="project-img">
-                            Project 03
+                        <div class="project-thumb">
+                            <div class="project-thumb-inner">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-color)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                <span>Vitalis Health</span>
+                            </div>
                         </div>
                         <div class="project-info">
                             <div class="project-tags">
                                 <span class="tag">Healthcare</span>
                                 <span class="tag">Web Platform</span>
                             </div>
-                            <h3 class="project-title">Vitalis Health</h3>
+                            <h3>Vitalis Health</h3>
                             <p>Connecting patients with specialists through seamless telehealth.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <div class="project-thumb-inner">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-color)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                                <span>Learnly</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span class="tag">EdTech</span>
+                                <span class="tag">Web App</span>
+                            </div>
+                            <h3>Learnly</h3>
+                            <p>An interactive learning platform designed for engagement and retention.</p>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
+
+        <!-- ========== TESTIMONIAL ========== -->
+        <section class="testimonial">
+            <div class="container">
+                <div class="testimonial-card">
+                    <blockquote>"Jane completely transformed our product. Her design-driven approach to growth helped us increase conversions by 140% in just 3 months."</blockquote>
+                    <p class="testimonial-author">Alex Chen</p>
+                    <p class="testimonial-role">CEO, Nexus Financial</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer id="contact">
-        <div class="container footer-content">
-            <div class="logo">
-                Jane Doe
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">jane.design</div>
+                <div class="footer-links">
+                    <a href="#">Dribbble</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Email</a>
+                </div>
             </div>
-            <div class="footer-socials">
-                <a href="#">Dribbble</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Email</a>
-            </div>
+            <p class="footer-copy">&copy; 2025 Jane Doe. All rights reserved.</p>
         </div>
     </footer>
 
