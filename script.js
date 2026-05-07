@@ -1,39 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggleBtn = document.getElementById('themeToggle');
     const htmlElement = document.documentElement;
+    const pill = document.getElementById('themePill');
+    const radios = document.querySelectorAll('.theme-switcher-input');
+    const radioLight = document.getElementById('themeLight');
+    const radioSystem = document.getElementById('themeSystem');
+    const radioDark = document.getElementById('themeDark');
 
-    // Check for saved theme preference or system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Position map: light=0, system=1, dark=2
+    const positionMap = { light: '0', system: '1', dark: '2' };
 
-    // Set initial theme
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-        setTheme('dark');
-    } else {
-        setTheme('light');
+    // Resolve what the system preference actually is
+    function getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
 
-    // Toggle theme on button click
-    themeToggleBtn.addEventListener('click', () => {
-        const currentTheme = htmlElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
+    // Apply the resolved theme to the document
+    function applyTheme(mode) {
+        const resolvedTheme = mode === 'system' ? getSystemTheme() : mode;
+        htmlElement.setAttribute('data-theme', resolvedTheme);
+    }
+
+    // Move the sliding pill to the correct position
+    function movePill(mode) {
+        pill.setAttribute('data-position', positionMap[mode]);
+    }
+
+    // Check the correct radio button
+    function checkRadio(mode) {
+        if (mode === 'light') radioLight.checked = true;
+        else if (mode === 'system') radioSystem.checked = true;
+        else if (mode === 'dark') radioDark.checked = true;
+    }
+
+    // Set everything for a given mode
+    function setMode(mode) {
+        applyTheme(mode);
+        movePill(mode);
+        checkRadio(mode);
+    }
+
+    // Determine initial mode from localStorage
+    const savedMode = localStorage.getItem('themeMode'); // 'light' | 'system' | 'dark'
+    const initialMode = savedMode || 'system';
+    setMode(initialMode);
+
+    // Listen for radio changes
+    radios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const mode = e.target.value;
+            setMode(mode);
+            localStorage.setItem('themeMode', mode);
+        });
     });
 
-    function setTheme(theme) {
-        htmlElement.setAttribute('data-theme', theme);
-
-        // Toggle icon visibility
-        const sunIcon = themeToggleBtn.querySelector('.icon-sun');
-        const moonIcon = themeToggleBtn.querySelector('.icon-moon');
-
-        if (theme === 'dark') {
-            sunIcon.style.display = 'block';
-            moonIcon.style.display = 'none';
-        } else {
-            sunIcon.style.display = 'none';
-            moonIcon.style.display = 'block';
+    // Listen for system preference changes (matters when "system" is selected)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        const currentMode = localStorage.getItem('themeMode') || 'system';
+        if (currentMode === 'system') {
+            applyTheme('system');
         }
-    }
+    });
 });

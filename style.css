@@ -142,38 +142,84 @@ nav a:hover {
   color: var(--accent-blue);
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  width: 42px;
-  height: 42px;
-  border: var(--border-w) solid var(--border-color);
-  border-radius: 12px;
-  background: var(--surface-color);
-  cursor: pointer;
+/* Theme Switcher – 3-option segmented control */
+.theme-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #e8e8e8;
+  border-radius: 100px;
+  padding: 4px;
+  gap: 0;
+  z-index: 10;
+}
+
+[data-theme="dark"] .theme-switcher {
+  background: #2a2a2a;
+}
+
+.theme-switcher-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.theme-switcher-label {
+  position: relative;
+  z-index: 2;
+  width: 38px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.15s, box-shadow 0.15s, background 0.3s;
-  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: color 0.3s ease;
+  color: #888;
+}
+
+[data-theme="dark"] .theme-switcher-label {
+  color: #666;
+}
+
+.theme-switcher-input:checked + .theme-switcher-label {
   color: var(--text-color);
 }
 
-.theme-toggle:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px var(--shadow-color);
+.theme-switcher-label svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  transition: stroke 0.3s ease;
 }
 
-.theme-toggle:active {
-  transform: translate(3px, 3px);
-  box-shadow: 0 0 0 var(--shadow-color);
+/* Sliding pill indicator */
+.theme-switcher-pill {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 38px;
+  height: 34px;
+  background: var(--surface-color);
+  border-radius: 100px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
 }
 
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--text-color);
-  transition: fill 0.3s;
+.theme-switcher-pill[data-position="0"] {
+  transform: translateX(0);
+}
+
+.theme-switcher-pill[data-position="1"] {
+  transform: translateX(38px);
+}
+
+.theme-switcher-pill[data-position="2"] {
+  transform: translateX(76px);
 }
 
 /* ========================================
